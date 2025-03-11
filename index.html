@@ -76,12 +76,14 @@
             border: 1px solid #ffd700;
             padding: 20px;
             margin-bottom: 20px;
-            animation: fadeIn 1.5s ease-in-out;
         }
         .testimonial-carousel {
             display: flex;
             overflow: hidden;
             width: 100%;
+            max-width: 600px;
+            margin: auto;
+            position: relative;
         }
         .testimonial-slide {
             min-width: 100%;
@@ -122,7 +124,7 @@
     <div class="container">
         <section id="home" class="main-content">
             <h2>Welcome to Kiani ATM Solutions</h2>
-            <p>Brief introduction to Kiani ATM Services and its offerings.</p>
+            <p>Providing seamless ATM solutions for businesses and communities.</p>
             <a class="cta-button" href="#services">Learn More</a>
             <a class="cta-button" href="#contact">Contact Us</a>
         </section>
@@ -149,25 +151,5 @@
     <footer>
         <p>&copy; 2024 Kiani ATM Solutions. All rights reserved.</p>
     </footer>
-
-    <script>
-        document.addEventListener("scroll", function() {
-            let sections = document.querySelectorAll(".main-content");
-            sections.forEach(section => {
-                let rect = section.getBoundingClientRect();
-                if (rect.top < window.innerHeight - 50) {
-                    section.classList.add("visible");
-                }
-            });
-        });
-
-        let index = 0;
-        function rotateTestimonials() {
-            const slides = document.querySelectorAll(".testimonial-slide");
-            index = (index + 1) % slides.length;
-            document.querySelector(".testimonial-carousel").style.transform = `translateX(-${index * 100}%)`;
-        }
-        setInterval(rotateTestimonials, 3000);
-    </script>
 </body>
 </html>
