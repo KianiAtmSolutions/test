@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiani ATM Solutions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        header {
+            background-color: #ffd700;
+            color: #000;
+            text-align: center;
+            padding: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        nav {
+            background-color: #000;
+            color: #ffd700;
+            text-align: center;
+            padding: 10px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease-in-out;
+        }
+        nav a {
+            color: #ffd700;
+            text-decoration: none;
+            padding: 0 15px;
+            transition: color 0.3s ease-in-out;
+        }
+        nav a:hover {
+            color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #111;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        .main-content {
+            padding: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease-in-out;
+        }
+        .visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .cta-button {
+            background-color: #ffd700;
+            color: #000;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+        }
+        .cta-button:hover {
+            background-color: #f1c40f;
+            transform: scale(1.05);
+        }
+        .testimonial {
+            border: 1px solid #ffd700;
+            padding: 20px;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .testimonial-carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+        }
+        .testimonial-slide {
+            min-width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        footer {
+            background-color: #000;
+            color: #ffd700;
+            text-align: center;
+            padding: 20px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kiani ATM Solutions</h1>
+        <p>"Seamless Transactions, Boundless Opportunities"</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#why-choose-us">Why Choose Us</a>
+        <a href="#locations">Locations</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact Us</a>
+    </nav>
+
+    <div class="container">
+        <section id="home" class="main-content">
+            <h2>Welcome to Kiani ATM Solutions</h2>
+            <p>Brief introduction to Kiani ATM Services and its offerings.</p>
+            <a class="cta-button" href="#services">Learn More</a>
+            <a class="cta-button" href="#contact">Contact Us</a>
+        </section>
+
+        <section id="testimonials" class="main-content">
+            <h2>Testimonials</h2>
+            <div class="testimonial-carousel">
+                <div class="testimonial-slide">
+                    <div class="testimonial">
+                        <p>"Love the service, keep providing convenience."</p>
+                        <p>- Mo</p>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial">
+                        <p>"Keep up the good work."</p>
+                        <p>- Harris</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Kiani ATM Solutions. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("scroll", function() {
+            let sections = document.querySelectorAll(".main-content");
+            sections.forEach(section => {
+                let rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 50) {
+                    section.classList.add("visible");
+                }
+            });
+        });
+
+        let index = 0;
+        function rotateTestimonials() {
+            const slides = document.querySelectorAll(".testimonial-slide");
+            index = (index + 1) % slides.length;
+            document.querySelector(".testimonial-carousel").style.transform = `translateX(-${index * 100}%)`;
+        }
+        setInterval(rotateTestimonials, 3000);
+    </script>
+</body>
+</html>
